@@ -1,5 +1,5 @@
 import java.util.Scanner;
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class ErrorHandling {
     //Indeholder metoder til at scanne input med error handling, kan også potentielt klare menu'er fra Main
@@ -12,14 +12,16 @@ public class ErrorHandling {
         }
     }
 
-    public String readString(String inputType) {
+    public String readString() {
         String str = s.next();
-        while (inputType.isEmpty()){
+        while (str.isEmpty()){
             System.out.println("Must contain symbols");
             s.next();
         }
         return str;
     }
+
+
 
     public int readInteger(String inputType, int limit) {
         int i;
@@ -33,6 +35,22 @@ public class ErrorHandling {
             System.out.print("Indtast kun " + inputType + "\n");
             s.nextLine();
             i = readInteger(inputType, limit);
+        } return i;
+    }
+
+    public int readIntegerExact(String inputType, int lowerLimit, int upperLimit, int minChars) {
+        // readInteger der også checker tal er mellem lowerLimit og upperLimit og at der er minimum minChars cifre
+        int i;
+        try {
+            i = s.nextInt();
+            while(i <= lowerLimit || i >= upperLimit || Integer.toString(i).length() >= minChars){
+                System.out.println("Indtast kun " + inputType);
+                i = readIntegerExact(inputType, lowerLimit, upperLimit, minChars);
+            }
+        } catch (Exception e) {
+            System.out.print("Indtast kun " + inputType + "\n");
+            s.nextLine();
+            i = readIntegerExact(inputType, lowerLimit, upperLimit, minChars);
         } return i;
     }
 

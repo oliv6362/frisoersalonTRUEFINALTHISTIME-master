@@ -10,13 +10,13 @@ public class Login {
 
     public String inputEmail(){
         System.out.println("Indtast email:");
-        email = scan.readString("gyldig email");
+        email = scan.readString();
 
         return email;
     }
     public String inputPassword(){
         System.out.println("Indtast password:");
-        password = scan.readString("gyldig password");
+        password = scan.readString();
         return password;
     }
 }

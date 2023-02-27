@@ -1,15 +1,15 @@
 import java.util.Date;
 
 public class Bestilling {
-/* vi skal bruge:
-* dato for behandling
-* klokkeslæt
-* hvornår aftalen er lavet
-* hvilken behandling
-* tid behandling tager
-* pris
-* status(f.eks. aflyst, afsluttet, bestilt etc.) v
-* */
+    /* vi skal bruge:
+     * dato for behandling
+     * klokkeslæt
+     * hvornår aftalen er lavet
+     * hvilken behandling
+     * tid behandling tager
+     * pris
+     * status(f.eks. aflyst, afsluttet, bestilt etc.) v
+     * */
     private int bestillingId;
     private int behandlingsType;
     private int kunde;
@@ -48,7 +48,7 @@ public class Bestilling {
         this.bestillingId = bestillingId;
     }
 
-    public int getBehandlingsType() {
+    public int getBehandlingsId() {
         return behandlingsType;
     }
 
@@ -80,7 +80,7 @@ public class Bestilling {
         this.datoFormat = datoFormat;
     }
 
-    public int getStatus() {
+    public int getStatusId() {
         return status;
     }
 

@@ -57,13 +57,13 @@ public class UserController {
         System.out.println("Indtast bruger:");
 
         System.out.println("fornavn");
-        String userfNavn = errorHandling.readString("fornavn");
+        String userfNavn = errorHandling.readString();
 
         System.out.println("efternavn");
-        String usereNavn = errorHandling.readString("efternavn");
+        String usereNavn = errorHandling.readString();
 
         System.out.println("adresse");
-        String userAdresse = errorHandling.readString("adresse");
+        String userAdresse = errorHandling.readString();
 
         System.out.println("postnummer");
         int userPostnr = errorHandling.readInteger("postnummer", 9999);
@@ -72,10 +72,10 @@ public class UserController {
         int userTelefonnr = errorHandling.readInteger("Tlf nummer", 999999999);
 
         System.out.println("email");
-        String userEmail = errorHandling.readString("email addresse");
+        String userEmail = errorHandling.readString();
 
         System.out.println("Password");
-        String userPassword = errorHandling.readString("gyldigt password");
+        String userPassword = errorHandling.readString();
 
         System.out.println("Tryk 1 for kunde, 2 for medarbejder");
         int boolMedarbejder = errorHandling.readInteger("1 eller 2", 3);

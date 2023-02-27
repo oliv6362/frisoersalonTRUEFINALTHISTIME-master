@@ -22,13 +22,6 @@ public class DBSQL {
         }
     }
 
-    public String formatDateTime(String dato, String klokkeslæt){ // String år String måned String dag??
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); //DateTimeFormatter er et importeret Java library class som kan alt med dato og klokke
-        String formattedDateTime = dato + klokkeslæt;
-        formattedDateTime = formattedDateTime.trim();
-        return null;
-    }
-
 
     public User getUserPass(String eMail, String password) {
         try {
