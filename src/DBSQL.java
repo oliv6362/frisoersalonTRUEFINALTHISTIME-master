@@ -67,7 +67,6 @@ public class DBSQL {
         }
     }
 
-
     //Henter alle bestillinger
     public ArrayList<Bestilling> getAllBestilling() {
         try {
@@ -142,7 +141,6 @@ public class DBSQL {
         return bestillingId;
     }
 
-
     public int redigerMedarbedjer(int bestillingsId, int nyMedarbejder) {
         int bestillingId = 0;
 
@@ -158,30 +156,6 @@ public class DBSQL {
 
             if (rs.next()) {
                 bestillingId = rs.getInt("medarbejder");
-            }
-
-            stmt.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return bestillingId;
-    }
-
-    public String redigerDatoformat(int bestillingsId, String nyDatoFormat) {
-        String bestillingId = "";
-
-        try {
-            String sql = "UPDATE Bestilling SET datoFormat = '" + nyDatoFormat + "'" + "WHERE bestillingId = '" + bestillingsId + "'" ;
-            Statement stmt = connection.createStatement();
-            stmt.execute(sql);
-
-            sql = "SELECT datoFormat FROM Bestilling WHERE bestillingId = '" + bestillingsId + "'";
-            stmt.execute(sql);
-
-            ResultSet rs = stmt.getResultSet();
-
-            if (rs.next()) {
-                bestillingId = rs.getString("datoFormat");
             }
 
             stmt.close();
@@ -215,90 +189,6 @@ public class DBSQL {
         return bestillingId;
     }
 
-
-
-    public void redigerBestillingColumn(int bestillingId, int pick, int updatedAtb){
-        switch (pick) {
-            case 1: // behandling
-                break;
-            case 2: //
-                break;
-            case 3:
-                break;
-        }
-
-
-    }
-
-
-
-    public Bestilling redigerBestilling(Bestilling retBestilling) {
-        int behandlingId = retBestilling.getBehandlingsId();
-        int behandlingsType = retBestilling.getBehandlingsType();
-
-
-        try {
-            System.out.println(retBestilling.getDatoFormat());
-            String sql = "UPDATE bestilling SET (behandlingsType,kunde,medarbejder,datoFormat,status) ='" +
-                    behandlingsType +
-                    retBestilling.getKunde() +
-                    retBestilling.getMedarbejder() +
-                    retBestilling.getDatoFormat() +
-                    retBestilling.getStatus() + "'" +
-                    "where bestillingId = '" + behandlingId +"'";
-
-          /*String sql = "UPDATE bestilling SET (behandlingsType,kunde,medarbejder,datoFormat,status) VALUES('"
-                    + String.valueOf(retBestilling.getBehandlingsType()) + "','";
-            sql = sql + retBestilling.getKunde() + "','" + retBestilling.getMedarbejder() + "','" + retBestilling.getDatoFormat() + "','" + retBestilling.getStatus() + "')";
-*/
-
-            Statement stmt = connection.createStatement();
-            /*stmt.execute(sql);
-            System.out.println("made it past 1st execute");
-           sql = "SELECT behandlingsType FROM Bestilling WHERE bestillingId = '" + bestillingId + "'";*/
-            stmt.execute(sql);
-            System.out.println("made it past 1st execute");
-
-
-            ResultSet rs = stmt.getResultSet();
-
-            if (rs.next()) {
-              /*  behandlingId = rs.getInt("behandlingsType");
-                behandlingId = rs.getInt("kunde");
-                behandlingId = rs.getInt("medarbejder");
-                //behandlingId = rs.getString("datoFormat");
-                behandlingId = rs.getInt("status");*/
-
-            }
-
-
-            stmt.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return retBestilling;
-    }
-
-
-    //sæt status af bestilling, hvor der spørges om bestilling ID og status ID, hvor DBSQL kaldes til at rette status i databasen
-
-
-
-
-
-    public void setStatus(int id, int status) {
-
-        try {
-
-            String sql = "INSERT INTO Bestillinger WHERE bestillingId = '" + id + "'" + "VALUES'('" + status + "')";
-            Statement stmt = connection.createStatement();
-            stmt.execute(sql);
-            stmt.close();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public boolean isBestillingTimeFree(String dato, int behandlingsId) {
         // metode henter alle Bestillinger med dato inden for behandlingens tidsrum og er false hvis en bestilling er fundet

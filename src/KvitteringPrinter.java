@@ -65,10 +65,10 @@ public class KvitteringPrinter {
 */
 
 
-    //todo FIX FEJL I LINJE 80 OG 71
-/*
+
+
     public String printBehandling(int id){
-        Behandling behandling = behandlingCon.getBehandling(id);
+        Behandling behandling = db.getBehandling(id);
         return(
                 "ID: " + behandling.getBehandlingsId() +
                         "\n" + behandling.getBehandlingsNavn() +
@@ -77,7 +77,7 @@ public class KvitteringPrinter {
     }
 
     public void printAllBehandling(){ // læser behandlinger i basen, laver Behandling array, print behandling array
-        ArrayList<Behandling> behandlingList = (behandlingCon.getAllBehandling());
+        ArrayList<Behandling> behandlingList = (db.getAllBehandling());
         System.out.println("Behandlinger:");
         for (int i = 0; i < behandlingList.size(); i++) {
             Behandling behandling = behandlingList.get(i);
@@ -91,6 +91,8 @@ public class KvitteringPrinter {
 
         }
 
-    }*/
+    }
+
+
 
 }

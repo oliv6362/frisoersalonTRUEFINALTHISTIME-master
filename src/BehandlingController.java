@@ -19,14 +19,6 @@ public class BehandlingController {
     }
 
 
-    public void getBehandlinger(){}
-    //jeg laver ArrayList af Behandling obj fra base
-
-
-    public void deleteBehandling(){
-        //jeg sletter behandling fra base
-    }
-
     public Behandling buildBehandling() {
         System.out.print("\nNavn:   ");
         String behandlingsNavn = err.readString();

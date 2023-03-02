@@ -54,8 +54,6 @@ public class Menu {
     //Menuen for users som er registeret som kunder
     public static void kundeMenu() {
         System.out.println("kundemenu");
-
-
     }
 
     //Menuen for users som er registeret som medarbejdere
@@ -98,25 +96,6 @@ public class Menu {
             case 2:
                 redigerBestillingsMenu();
 
-               /* System.out.println("Indtast bestillings ID");
-                bestillingId = this.input.readInteger("et gyldigt bruger ID", 9999999);
-
-                Bestilling myBestillingtest = db.getBestilling (bestillingId);
-
-                //todo test for kun at ændre behandlingstypen
-                System.out.println("Tast behandlings id");
-               // int behandlingsType = input.readInteger("gyldig behandling id", 99999);
-
-                Scanner scan = new Scanner(System.in);
-                myBestillingtest.setBehandlingsType(scan.nextInt());
-
-                //ret så den retunere en korrekt bestilling //todo rettebestilled not used?
-                Bestilling rettedBestilling = db.redigerBestilling(myBestillingtest);
-
-                //todo send bestillingen ind til dbsql controlleren
-                //todo send til fra db controller til dbsql, hvor i sender det ind på databasen
-                //todo færdig
-*/
                 break;
 
             case 3:
