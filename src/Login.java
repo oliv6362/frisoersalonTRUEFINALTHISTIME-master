@@ -7,11 +7,9 @@ public class Login {
     //public static void main(String[] args) {
     //loginController loginController = new loginController();
 
-
     public String inputEmail(){
         System.out.println("Indtast email:");
         email = scan.readString();
-
         return email;
     }
     public String inputPassword(){
