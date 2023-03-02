@@ -6,7 +6,7 @@ public class KvitteringPrinter {
     static UserController usercon = new UserController();
     static BestillingController bestillingCon = new BestillingController();
 
-
+/*
     public String printBestilling(int id) { // jeg skriver en bestilling pænt TODO: MenuController methods?
 
         Bestilling bestilling = bestillingCon.getBestilling(id);
@@ -30,9 +30,9 @@ public class KvitteringPrinter {
         int kundeTlf = kunde.getTelefonNr();
         //hentes af User objs
 
-        String behandlingNavn = behandling.getBehandlingNavn();
-        int behandlingPris = behandling.getPris();
-        int behandlingTid = behandling.getTid();
+        String behandlingNavn = behandling.getBehandlingsNavn();
+        int behandlingPris = behandling.getBehandlingsPris();
+        int behandlingTid = behandling.getBehandlingsTid();
         //hentes af Behandling obj
 
         return ("Behandling reserveret til : " + bestillingDato +
@@ -62,15 +62,18 @@ public class KvitteringPrinter {
         }
 
     }
+*/
 
 
+    //todo FIX FEJL I LINJE 80 OG 71
+/*
     public String printBehandling(int id){
         Behandling behandling = behandlingCon.getBehandling(id);
         return(
-                "ID: " + behandling.getBehandlingId() +
-                        "\n" + behandling.getBehandlingNavn() +
-                        "\nTidsrum: " + behandling.getTid() + " min." +
-                        "\nPris: " + behandling.getPris() + " kr.");
+                "ID: " + behandling.getBehandlingsId() +
+                        "\n" + behandling.getBehandlingsNavn() +
+                        "\nTidsrum: " + behandling.getBehandlingsTid() + " min." +
+                        "\nPris: " + behandling.getBehandlingsPris() + " kr.");
     }
 
     public void printAllBehandling(){ // læser behandlinger i basen, laver Behandling array, print behandling array
@@ -79,14 +82,14 @@ public class KvitteringPrinter {
         for (int i = 0; i < behandlingList.size(); i++) {
             Behandling behandling = behandlingList.get(i);
             System.out.println(
-                    "ID: " + behandling.getBehandlingId() +
-                            "\n" + behandling.getBehandlingNavn() +
-                            "\nTidsrum: " + behandling.getTid() + " min." +
-                            "\nPris: " + behandling.getPris() + " kr."
+                    "ID: " + behandling.getBehandlingsId() +
+                            "\n" + behandling.getBehandlingsNavn() +
+                            "\nTidsrum: " + behandling.getBehandlingsTid() + " min." +
+                            "\nPris: " + behandling.getBehandlingsPris() + " kr."
             );
 
         }
 
-    }
+    }*/
 
 }

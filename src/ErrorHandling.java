@@ -43,8 +43,8 @@ public class ErrorHandling {
         int i;
         try {
             i = s.nextInt();
-            while(i <= lowerLimit || i >= upperLimit || Integer.toString(i).length() >= minChars){
-                System.out.println("Indtast kun " + inputType);
+            while(i <= lowerLimit || i >= upperLimit || Integer.toString(i).length() >= minChars){ // skal have flere eller ligmed minChars
+                System.out.println("Indtast kun " + inputType + " med minimum " + minChars + " cifre");
                 i = readIntegerExact(inputType, lowerLimit, upperLimit, minChars);
             }
         } catch (Exception e) {

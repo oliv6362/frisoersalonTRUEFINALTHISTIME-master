@@ -47,11 +47,13 @@ public class Bestilling {
     public void setBestillingId(int bestillingId) {
         this.bestillingId = bestillingId;
     }
-
     public int getBehandlingsId() {
         return behandlingsType;
     }
 
+    public int getBehandlingsType() {
+        return behandlingsType;
+    }
     public void setBehandlingsType(int behandlingsType) {
         this.behandlingsType = behandlingsType;
     }
@@ -59,7 +61,6 @@ public class Bestilling {
     public int getKunde() {
         return kunde;
     }
-
     public void setKunde(int kunde) {
         this.kunde = kunde;
     }
@@ -67,7 +68,6 @@ public class Bestilling {
     public int getMedarbejder() {
         return medarbejder;
     }
-
     public void setMedarbejder(int medarbejder) {
         this.medarbejder = medarbejder;
     }
@@ -75,7 +75,6 @@ public class Bestilling {
     public String getDatoFormat() {
         return datoFormat;
     }
-
     public void setDatoFormat(String datoFormat) {
         this.datoFormat = datoFormat;
     }
@@ -84,6 +83,9 @@ public class Bestilling {
         return status;
     }
 
+    public int getStatus() {
+        return status;
+    }
     public void setStatus(int status) {
         this.status = status;
     }
@@ -95,7 +97,7 @@ public class Bestilling {
                 ", behandlingsType=" + behandlingsType +
                 ", kunde=" + kunde +
                 ", medarbejder=" + medarbejder +
-                ", datoFormat=" + datoFormat +
+                ", datoFormat='" + datoFormat + '\'' +
                 ", status=" + status +
                 '}';
     }

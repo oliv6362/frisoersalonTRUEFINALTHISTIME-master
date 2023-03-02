@@ -5,61 +5,63 @@ public class Behandling {
 
 
     //FIELD-----------V
-    private int behandlingId;
-    private String behandlingNavn;
-    private int pris;
-    private int tid;
+    private int behandlingsId;
+    private String behandlingsNavn;
+    private int behandlingsPris;
+    private int behandlingsTid;
 
 
 
     //CONSTRUCTOR-----------V
-    public Behandling(String behandlingNavn, int pris, int tid) { //uden id
-        this.behandlingNavn = behandlingNavn;
-        this.pris = pris;
-        this.tid = tid;
+    public Behandling(String behandlingsNavn, int pris, int tid) { //uden id
+        this.behandlingsNavn = behandlingsNavn;
+        this.behandlingsPris = pris;
+        this.behandlingsTid = tid;
     }
 
-    public Behandling(int behandlingId, String behandlingNavn, int pris, int tid) { //med id
-        this.behandlingId = behandlingId;
-        this.behandlingNavn = behandlingNavn;
-        this.pris = pris;
-        this.tid = tid;
+    public Behandling(int behandlingsId, String behandlingsNavn, int pris, int tid) { //med id
+        this.behandlingsId = behandlingsId;
+        this.behandlingsNavn = behandlingsNavn;
+        this.behandlingsPris = pris;
+        this.behandlingsTid = tid;
     }
 
-    public Behandling(int behandlingId) {
-        this.behandlingId = behandlingId;
+    public Behandling() {
+
     }
 
     //METHODS------------V
-    public int getBehandlingId() {return behandlingId;}
 
-    public void setBehandlingId(int behandlingId) {
-        this.behandlingId = behandlingId;
+
+    public int getBehandlingsId() {
+        return behandlingsId;
     }
 
-
-    public String getBehandlingNavn() {
-        return behandlingNavn;
+    public void setBehandlingsId(int behandlingsId) {
+        this.behandlingsId = behandlingsId;
     }
 
-    public void setBehandlingNavn(String behandlingNavn) {
-        this.behandlingNavn = behandlingNavn;
+    public String getBehandlingsNavn() {
+        return behandlingsNavn;
     }
 
-
-    public int getTid() {
-        return tid;
+    public void setBehandlingsNavn(String behandlingsNavn) {
+        this.behandlingsNavn = behandlingsNavn;
     }
 
-    public void setTid(int tid) {
-        this.tid = tid;
+    public int getBehandlingsTid() {
+        return behandlingsTid;
     }
 
-    public int getPris() {
-        return pris;
+    public void setBehandlingsTid(int behandlingsTid) {
+        this.behandlingsTid = behandlingsTid;
     }
 
-    public void setPris(int pris) {
-        this.pris = pris;
+    public int getBehandlingsPris() {
+        return behandlingsPris;
+    }
+
+    public void setBehandlingsPris(int behandlingsPris) {
+        this.behandlingsPris = behandlingsPris;
     }
 }

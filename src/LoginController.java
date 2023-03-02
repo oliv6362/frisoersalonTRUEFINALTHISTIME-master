@@ -27,7 +27,7 @@ public class LoginController {
             }
 
         } else {
-            System.out.print("Email eller Password var ikke korrekt");
+            System.out.println("Email eller Password var ikke korrekt");
             accessType = 3;
 
         }
