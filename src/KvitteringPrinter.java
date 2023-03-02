@@ -5,6 +5,7 @@ public class KvitteringPrinter {
     static BehandlingController behandlingCon = new BehandlingController();
     static UserController usercon = new UserController();
     static BestillingController bestillingCon = new BestillingController();
+    static DBSQL db = new DBSQL();
 
 /*
     public String printBestilling(int id) { // jeg skriver en bestilling pænt TODO: MenuController methods?
