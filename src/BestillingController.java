@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class BestillingController {
 
@@ -88,9 +88,10 @@ public class BestillingController {
         //bestilling obj oprettet, default status: 1 for 'bestilt' når en bestilling først bliver lavet
 
         return b;
-
-
     }
+
+
+
 
     public void addBestilling()
     {
@@ -98,7 +99,7 @@ public class BestillingController {
         db.addBestilling(b);
     }
 
-    public void getBestilling()
+    public Bestilling getBestilling(int id)
     {
         Bestilling myBestilling = db.getBestilling(id);
         return myBestilling;

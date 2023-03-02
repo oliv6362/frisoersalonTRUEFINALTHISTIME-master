@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Menu {
     //FIELD
@@ -246,16 +245,18 @@ public class Menu {
                 break;
 
             case 2:
-                System.out.println("Indtast Bestillings Id");
-                bestId = input.readInteger("", 999999999);
+                //ret Kunde
+                System.out.println("Indtast bestillings ID");
+                bId = input.readInteger("et gyldigt kunde ID", 9999999);
 
-                System.out.println("Indtast ny kunde");
-                int nyKunde = input.readInteger("", 999999999);
+                System.out.println("Indtast ny kunde id til bestillingen");
 
-            //    nyKunde = bestillingcon.updateBestillingKunde(bestId, nyKunde);
+                int nyKundeId = input.readInteger("et gyldigt kunde ID", 9999999);
 
-                System.out.println("Den nye kunde til bestillingen er: " + usercon.getUser(nyKunde).getfNavn());
+                nyKundeId= db.redigerKunde(bId, nyKundeId);
+                System.out.println("Den nye kunde til bestillingen er: " + db.getUser(nyKundeId).getfNavn() + " " + db.getUser(nyKundeId).geteNavn());
 
+                //TODO: bruger skal være kunde
                 this.input.endMenu();
                 redigerBestillingsMenu();
                 break;
@@ -293,11 +294,13 @@ public class Menu {
                 this.input.endMenu();
                 redigerBestillingsMenu();
                 break;
-            case 6:
-            //tilbage til hovedmenu
+            case 5:
+                mainMenu();
                 break;
-            case 7:
-            //afslut
+            case 6:
+                System.out.println("Du er logget ud");
+                System.exit(0);
+                //quit
                 break;
 
 
