@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MenuController {
+public class Menu {
     //FIELD
     LoginController loginc = new LoginController();
     UserController usercon = new UserController();
@@ -66,10 +66,6 @@ public class MenuController {
         System.out.println("Medarbejder menu:");
         int valg;
 
-        //opretter ui til scanner
-
-        DBSQL db = new DBSQL();
-
         int userId;
         int bestillingId;
         //fortæller brugeren deres valgmuligheder
@@ -86,13 +82,14 @@ public class MenuController {
                         "8. Vis alle brugere \n" +
                         "9. Vis en bruger \n" +
                         "\n" +
-                        "10. Log ud \n" +
+                        "10. Log ud og afslut \n" +
                         "Indtast dit valg");
         valg = input.readInteger("tal mellem 1 og 10", 11);
         //Et switch statement, hvor at user kan vælge imellem de forskellige cases og hver case gør noget forskelligt
         switch (valg) {
             case 1:
                 //todo Medarbejder opretter en bestilling og kalder bestillingscontroller
+                System.out.println("Viser alle bestillinger");
                 bestillingcon.addBestilling();
 
                 this.input.endMenu();
@@ -100,54 +97,27 @@ public class MenuController {
                 break;
 
             case 2:
-               // opdaterBestillingsMenu();
+                redigerBestillingsMenu();
 
-
-
-
-
-                System.out.println("Indtast bestillings ID");
+               /* System.out.println("Indtast bestillings ID");
                 bestillingId = this.input.readInteger("et gyldigt bruger ID", 9999999);
-
-
-
 
                 Bestilling myBestillingtest = db.getBestilling (bestillingId);
 
-
-
-
-                //test for kun at ændre behandlingstypen
+                //todo test for kun at ændre behandlingstypen
                 System.out.println("Tast behandlings id");
                // int behandlingsType = input.readInteger("gyldig behandling id", 99999);
-
 
                 Scanner scan = new Scanner(System.in);
                 myBestillingtest.setBehandlingsType(scan.nextInt());
 
                 //ret så den retunere en korrekt bestilling //todo rettebestilled not used?
-                Bestilling rettedBestilling = db.redigerBestilling2(myBestillingtest);
+                Bestilling rettedBestilling = db.redigerBestilling(myBestillingtest);
 
                 //todo send bestillingen ind til dbsql controlleren
                 //todo send til fra db controller til dbsql, hvor i sender det ind på databasen
                 //todo færdig
-
-
-
-
-
-
-
-               // behandlingsType = bestillingcon.updateBestillingBehandling(myBestillingtest);
-                //behandlingsType = bestillingcon.updateBestillingBehandling(bestillingId, behandlingsType, kunde, medarbejder, datoFormat, status);
-
-              //  System.out.println(myBestillingtest.toString());
-
-
-
-                //bestillingcon.testbestillingredigering();
-
-
+*/
                 break;
 
             case 3:
@@ -163,31 +133,36 @@ public class MenuController {
                 //todo vis en bestilling -
                 System.out.println("Vis en bestilling:");
                 System.out.println("Indtast bestillings ID");
-                bestillingId = this.input.readInteger("et gyldigt bruger ID", 9999999);
-                Bestilling myBestilling = db.getBestilling(bestillingId);
-                System.out.println(myBestilling.toString());
 
+                bestillingId = this.input.readInteger("et gyldigt bestilling ID", 9999999);
+
+                bestillingcon.getBestilling(bestillingId);
+                System.out.println(bestillingcon.getBestilling(bestillingId));
 
                 this.input.endMenu();
                 medarbejderMenu();
                 break;
 
             case 5:
+                //TODO opret hårbehandling
                 Behandling behandling = behandlingCon.buildBehandling();
                 //buildBehandling opretter Behandling obj
 
-                db.addBehandling(behandling);
+         //       db.addBehandling(behandling);
                 //addBehandling tilføjer Behandling obj til base
                 System.out.println("Ny behandling tilføjet");
                 //System.out.println(print.printBehandling(behandling.getBehandlingsId()));
                 //printer behandling pænt til String
 
+                this.input.endMenu();
                 medarbejderMenu();
                 break;
 
             case 6:
+                System.out.println("Viser alle behandlinger");
+                behandlingCon.getAllBehandlinger();
 
-
+                this.input.endMenu();
                 medarbejderMenu();
                 break;
 
@@ -209,36 +184,37 @@ public class MenuController {
 
             case 9:
                 //todo vis en bruger
+                System.out.println("Vis en bruger:");
                 System.out.println("Indtast bruger ID");
-                userId = this.input.readInteger("et gyldigt bruger ID", 9999999);
-                User myUser = db.getUser(userId);
-                System.out.println(myUser.toString());
 
+                userId = this.input.readInteger("et gyldigt bruger ID", 9999999);
+
+                usercon.getUser(userId);
+
+                System.out.println(usercon.getUser(userId));
+
+                this.input.endMenu();
                 medarbejderMenu();
                 break;
             case 10:
-
-
-                    db.DeleteEntriesBasedOnAge();
-
-                //user vælger af afslutte og programmet lukker
-              //  System.out.println("Du er logget ud");
-               // System.exit(0);
+                System.out.println("Du er logget ud");
+                System.exit(0);
                 //quit
 
-                //medarbejderMenu();
                 break;
         }
     }
 
 
-    /*
+
     //TODO opdater/rediger en bestilling
-    public void opdaterBestillingsMenu() {
+    public void redigerBestillingsMenu() {
 
         System.out.println("Redigerings menu af en bestilling:");
         int valg;
 
+        //todo dbsql connection skal slettes
+        DBSQL db = new DBSQL();
 
         int userId;
         int bestillingId;
@@ -247,31 +223,26 @@ public class MenuController {
                 "1 Ret behandlingstype \n" +
                         "2 Ret kunde \n" +
                         "3. Ret Medarbejder \n" +
-                        "4. Ret Dato og tid \n" +
-                        "5. Ret Status\n" +
-                        "6. Afslut \n" +
+                        "4. Ret Status\n" +
+                        "5. Log ud og Afslut \n" +
                         "Indtast dit valg");
         valg = input.readInteger("tal mellem 1 og 10", 11);
         //Et switch statement, hvor at user kan vælge imellem de forskellige cases og hver case gør noget forskelligt
         switch (valg) {
             case 1:
+                //ret Behandlingstype
+                System.out.println("Indtast bestillings ID");
+                int bId = input.readInteger("et gyldigt bestilling ID", 9999999);
 
-                //bestillingcon.updateBestillingBehandlingstype();
-                System.out.println("Indtast Bestillings Id");
-                int bestId = input.readInteger("", 999999999);
+                System.out.println("Indtast ny behandlingstype");
 
-                print.printAllBehandling();
+                int nyBehandlingstype = input.readInteger("et gyldigt bestilling ID", 9999999);
 
-                System.out.println("Indtast ny Behandlings type");
-                int nyBehandlType = input.readInteger("", 999999999);
-
-                nyBehandlType = bestillingcon.updateBestillingBehandling(bestId, nyBehandlType,0,0,0);
-              //  bestillingcon.updateBestilling(bestId, nyBehandlType, nyBehandlType, 0,  "2023-12-12", 0);
-
-                System.out.println("Nye behandling er: " + behandlingCon.getBehandling(nyBehandlType).getBehandlingsNavn());
+                nyBehandlingstype = db.redigerBehandlingsType(bId, nyBehandlingstype);
+                System.out.println("Nye behandling er: " + db.getBehandling(nyBehandlingstype).getBehandlingsNavn());
 
                 this.input.endMenu();
-                medarbejderMenu();
+                redigerBestillingsMenu();
                 break;
 
             case 2:
@@ -286,24 +257,41 @@ public class MenuController {
                 System.out.println("Den nye kunde til bestillingen er: " + usercon.getUser(nyKunde).getfNavn());
 
                 this.input.endMenu();
-                medarbejderMenu();
-
+                redigerBestillingsMenu();
                 break;
 
             case 3:
+                //ret medarbejder
+                System.out.println("Indtast bestillings ID");
+                bId = input.readInteger("et gyldigt user ID", 9999999);
 
+                System.out.println("Indtast ny medarbejder id til besetillingen");
 
+                int nyMedarbejder = input.readInteger("et gyldigt user ID", 9999999);
+
+                nyMedarbejder = db.redigerMedarbedjer(bId, nyMedarbejder);
+                System.out.println("Den nye medarbejder til bestillingen er: " + db.getUser(nyMedarbejder).getfNavn() + " " + db.getUser(nyMedarbejder).geteNavn());
+
+                //TODO: bruger skal være medarbejder
+                this.input.endMenu();
+                redigerBestillingsMenu();
                 break;
-
 
             case 4:
+                //ret status
+                System.out.println("Indtast bestillings ID");
+                bId = input.readInteger("et gyldigt user ID", 9999999);
 
+                System.out.println("Indtast ny Status id til bestillingen");
+                int nyStatusId = input.readInteger("1-3", 4);
 
-                break;
+                nyStatusId = db.redigerStatus(bId, nyStatusId);
 
-            case 5:
+                String status = bestillingcon.getStatusName(nyStatusId);
+                System.out.println("Bestilling er nu: " + status);
 
-
+                this.input.endMenu();
+                redigerBestillingsMenu();
                 break;
             case 6:
             //tilbage til hovedmenu
@@ -315,6 +303,4 @@ public class MenuController {
 
         }
     }
-
-     */
 }

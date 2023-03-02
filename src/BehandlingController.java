@@ -9,7 +9,14 @@ public class BehandlingController {
     static ErrorHandling err = new ErrorHandling();
 
 
-
+    public void getAllBehandlinger(){
+        ArrayList<Behandling> behandlingListe;
+        behandlingListe = db.getAllBehandling();
+        for (int i = 0; i < behandlingListe.size(); i++)
+        {
+            System.out.println(behandlingListe.get(i));
+        }
+    }
 
 
     public void getBehandlinger(){}

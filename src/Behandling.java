@@ -64,4 +64,15 @@ public class Behandling {
     public void setBehandlingsPris(int behandlingsPris) {
         this.behandlingsPris = behandlingsPris;
     }
+
+
+    @Override
+    public String toString() {
+        return "Behandling{" +
+                "behandlingsId=" + behandlingsId +
+                ", behandlingsNavn='" + behandlingsNavn + '\'' +
+                ", behandlingsPris=" + behandlingsPris +
+                ", behandlingsTid=" + behandlingsTid +
+                '}';
+    }
 }

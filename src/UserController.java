@@ -12,8 +12,9 @@ public class UserController {
         db.addUser(u);
     }
 
-    public void getUser(){
-
+    public User getUser(int userId){
+        User myUser = db.getUser(userId);
+        return myUser;
     }
 
     public void getAllUser(){

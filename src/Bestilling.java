@@ -79,9 +79,9 @@ public class Bestilling {
         this.datoFormat = datoFormat;
     }
 
-    public int getStatusId() {
+  /*  public int getStatusId() {
         return status;
-    }
+    }*/
 
     public int getStatus() {
         return status;

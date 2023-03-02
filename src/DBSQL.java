@@ -32,7 +32,7 @@ public class DBSQL {
         try {
             String sql = "INSERT INTO bestilling (behandlingsType,kunde,medarbejder,datoFormat,status) VALUES('"
                     + String.valueOf(b.getBehandlingsId()) + "','" + b.getKunde() + "','";
-            sql = sql + b.getMedarbejder() + "','" + b.getDatoFormat() + "','" + b.getStatusId() + "')";
+            sql = sql + b.getMedarbejder() + "','" + b.getDatoFormat() + "','" + b.getStatus() + "')";
 
             Statement stmt = connection.createStatement();
             stmt.execute(sql);
@@ -95,35 +95,141 @@ public class DBSQL {
         }
     }
 
-/*
-    public Bestilling UpdategetBestilling(int Id) {
-        try {
-            Bestilling bestilling = new Bestilling();
+    public int redigerBehandlingsType(int bestillingsId, int nyBehandlingsType) {
+         int bestillingId = 0;
 
-            String sql = "SELECT * FROM Bestilling WHERE bestillingId = " + Id + ";";
+        try {
+            String sql = "UPDATE Bestilling SET behandlingsType = '" + nyBehandlingsType + "'" + "WHERE bestillingId = '" + bestillingsId + "'" ;
             Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+
+            sql = "SELECT behandlingsType FROM Bestilling WHERE bestillingId = '" + bestillingsId + "'";
             stmt.execute(sql);
 
             ResultSet rs = stmt.getResultSet();
 
-            while (rs.next()) {
-                bestilling.setBestillingId(rs.getInt("bestillingId"));       //ID
-                bestilling.setBehandlingsType(rs.getInt("behandlingsType"));    //fnavn
-                bestilling.setKunde(rs.getInt("kunde"));    //enavn
-                bestilling.setMedarbejder(rs.getInt("medarbejder")); //adresse
-                bestilling.setDatoFormat(rs.getString("datoFormat"));
-                bestilling.setStatus(rs.getInt("status"));       //postnr
+            if (rs.next()) {
+                bestillingId = rs.getInt("behandlingsType");
             }
 
-            //       sql = "UPDATE bestilling SET (behandlingsType,kunde,medarbejder,status) = '" + bestilling.getBehandlingsType() + ";";
-            //     stmt.execute(sql);
-
-            return bestilling;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
+        return bestillingId;
     }
-*/
+
+    public int redigerKunde(int bestillingsId, int nyKunde) {
+        int bestillingId = 0;
+
+        try {
+            String sql = "UPDATE Bestilling SET kunde = '" + nyKunde + "'" + "WHERE bestillingId = '" + bestillingsId + "'" ;
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+
+            sql = "SELECT kunde FROM Bestilling WHERE bestillingId = '" + bestillingsId + "'";
+            stmt.execute(sql);
+
+            ResultSet rs = stmt.getResultSet();
+
+            if (rs.next()) {
+                bestillingId = rs.getInt("kunde");
+            }
+
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return bestillingId;
+    }
+
+
+    public int redigerMedarbedjer(int bestillingsId, int nyMedarbejder) {
+        int bestillingId = 0;
+
+        try {
+            String sql = "UPDATE Bestilling SET medarbejder = '" + nyMedarbejder + "'" + "WHERE bestillingId = '" + bestillingsId + "'" ;
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+
+            sql = "SELECT medarbejder FROM Bestilling WHERE bestillingId = '" + bestillingsId + "'";
+            stmt.execute(sql);
+
+            ResultSet rs = stmt.getResultSet();
+
+            if (rs.next()) {
+                bestillingId = rs.getInt("medarbejder");
+            }
+
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return bestillingId;
+    }
+
+    public String redigerDatoformat(int bestillingsId, String nyDatoFormat) {
+        String bestillingId = "";
+
+        try {
+            String sql = "UPDATE Bestilling SET datoFormat = '" + nyDatoFormat + "'" + "WHERE bestillingId = '" + bestillingsId + "'" ;
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+
+            sql = "SELECT datoFormat FROM Bestilling WHERE bestillingId = '" + bestillingsId + "'";
+            stmt.execute(sql);
+
+            ResultSet rs = stmt.getResultSet();
+
+            if (rs.next()) {
+                bestillingId = rs.getString("datoFormat");
+            }
+
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return bestillingId;
+    }
+
+    public int redigerStatus(int bestillingsId, int nyStatus) {
+        int bestillingId = 0;
+
+        try {
+            String sql = "UPDATE Bestilling SET status = '" + nyStatus + "'" + "WHERE bestillingId = '" + bestillingsId + "'" ;
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+
+            sql = "SELECT status FROM Bestilling WHERE bestillingId = '" + bestillingsId + "'";
+            stmt.execute(sql);
+
+            ResultSet rs = stmt.getResultSet();
+
+            if (rs.next()) {
+                bestillingId = rs.getInt("status");
+            }
+
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return bestillingId;
+    }
+
+
+
+    public void redigerBestillingColumn(int bestillingId, int pick, int updatedAtb){
+        switch (pick) {
+            case 1: // behandling
+                break;
+            case 2: //
+                break;
+            case 3:
+                break;
+        }
+
+
+    }
 
 
 
@@ -175,57 +281,12 @@ public class DBSQL {
     }
 
 
-
-
-    public Bestilling redigerBestilling2(Bestilling retBestilling) {
-        int behandlingId = 0;
-
-        try {
-            System.out.println(retBestilling.getDatoFormat());
-            String sql = "UPDATE bestilling SET (bestillingId,behandlingsType,kunde,medarbejder,status) = '" +
-                    retBestilling.getBestillingId() + "'" +
-                    retBestilling.getBehandlingsType() + "'" +
-                    retBestilling.getKunde() + "'" +
-                    retBestilling.getMedarbejder() + "'" +
-                    retBestilling.getStatus()  + "'";
-
-           // "where bestillingId = '" + retBestilling.getBestillingId() +
-/*
-          String sql = "UPDATE bestilling SET (behandlingsType,kunde,medarbejder,datoFormat,status) VALUES('"
-                    + String.valueOf(retBestilling.getBehandlingsType()) + "','";
-            sql = sql + retBestilling.getKunde() + "','" + retBestilling.getMedarbejder() + "','" + retBestilling.getDatoFormat() + "','" + retBestilling.getStatus() + "')";
-*/
-
-            Statement stmt = connection.createStatement();
-            /*stmt.execute(sql);
-            System.out.println("made it past 1st execute");
-           sql = "SELECT behandlingsType FROM Bestilling WHERE bestillingId = '" + bestillingId + "'";*/
-            stmt.execute(sql);
-            System.out.println("made it past 1st execute");
-
-
-            ResultSet rs = stmt.getResultSet();
-
-            if (rs.next()) {
-              /*  behandlingId = rs.getInt("behandlingsType");
-                behandlingId = rs.getInt("kunde");
-                behandlingId = rs.getInt("medarbejder");
-                //behandlingId = rs.getString("datoFormat");
-                behandlingId = rs.getInt("status");*/
-
-            }
-
-
-            stmt.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return retBestilling;
-    }
-
-
-
     //sæt status af bestilling, hvor der spørges om bestilling ID og status ID, hvor DBSQL kaldes til at rette status i databasen
+
+
+
+
+
     public void setStatus(int id, int status) {
 
         try {

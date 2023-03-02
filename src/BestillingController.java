@@ -23,227 +23,6 @@ public class BestillingController {
     static UserController usercon = new UserController();
 
 
-/*
-
-    public Bestilling UpdategetBestilling(int Id) {
-        try {
-            Bestilling bestilling = new Bestilling();
-
-            String sql = "SELECT * FROM Bestilling WHERE bestillingId = " + Id + ";";
-            Statement stmt = db.connection.createStatement();
-            stmt.execute(sql);
-
-            ResultSet rs = stmt.getResultSet();
-
-            while (rs.next()) {
-                bestilling.setBestillingId(rs.getInt("bestillingId"));       //ID
-                bestilling.setBehandlingsType(rs.getInt("behandlingsType"));    //fnavn
-                bestilling.setKunde(rs.getInt("kunde"));    //enavn
-                bestilling.setMedarbejder(rs.getInt("medarbejder")); //adresse
-                bestilling.setDatoFormat(rs.getString("datoFormat"));
-                bestilling.setStatus(rs.getInt("status"));       //postnr
-            }
-
-     //       sql = "UPDATE bestilling SET (behandlingsType,kunde,medarbejder,status) = '" + bestilling.getBehandlingsType() + ";";
-       //     stmt.execute(sql);
-
-            return bestilling;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-*/
-
-
-/*
-    public static Bestilling testbestillingredigering() {
-
-        Scanner input = new Scanner(System.in);
-
-
-        System.out.println("behandlingsType");
-        int behandlingsType = input.nextInt();
-
-        int kunde = testbestillingredigering().getKunde();
-
-        int medarbejder =
-
-        String datoFormat =
-
-        int status =
-
-
-        Bestilling b = new Bestilling(behandlingsType,kunde, medarbejder, datoFormat, status);
-
-       // System.out.println(b);
-
-        return b;
-    }
-
-*/
-
-    /*
-                  /*System.out.println("Indtast bestillings ID");
-                bestillingId = this.input.readInteger("et gyldigt bruger ID", 9999999);
-                Bestilling myBestilling = bestillingcon.getBestilling(bestillingId);
-                System.out.println(myBestilling.toString());
-
-
-                System.out.println("Indtast ny Behandlings type");
-
-    int nyBehandlType = input.readInteger("", 999999999);
-
-    nyBehandlType = bestillingcon.updateBestillingBehandling(bestillingId, nyBehandlType,0,0,0);
-    //  bestillingcon.updateBestilling(bestId, nyBehandlType, nyBehandlType, 0,  "2023-12-12", 0);
-
-                System.out.println("Nye behandling er: " + behandlingCon.getBehandling(nyBehandlType).getBehandlingsNavn());
-
-*/
-/*
-
-//  synlig return_type Navn                     brug af parameter
-    public Bestilling updateBestillingBehandling(Bestilling retBestilling) {
-        int behandlingId = 0;
-        try {
-
-            String sql = "UPDATE bestilling SET (behandlingsType,kunde,medarbejder,datoFormat,status) = '" +
-                    retBestilling.getBehandlingsType() +
-                    nyKundeId +
-                    nyMedarbejderId +
-                    nyDatoFormat +
-                    nyStatus + "'" +
-                    "WHERE bestillingId = '" + bestillingId + "'" ;
-
-
-            Statement stmt = db.connection.createStatement();
-            stmt.execute(sql);
-
-            sql = "SELECT behandlingsType FROM Bestilling WHERE bestillingId = '" + bestillingId + "'";
-            stmt.execute(sql);
-
-
-            ResultSet rs = stmt.getResultSet();
-
-            if (rs.next()) {
-                behandlingId = rs.getInt("behandlingsType");
-                behandlingId = rs.getInt("kunde");
-                behandlingId = rs.getInt("medarbejder");
-                //behandlingId = rs.getString("datoFormat");
-                behandlingId = rs.getInt("status");
-
-            }
-
-
-            stmt.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return retBestilling;
-    }
-
-
-
-    */
-
-
-    /*public int updateBestillingBehandling(int bestillingId, int nyBehandlingsType, int nyKundeId, int nyMedarbejderId, String nyDatoFormat, int nyStatus) {
-        int behandlingId = 0;
-        try {
-
-
-             String sql = "UPDATE bestilling SET (behandlingsType,kunde,medarbejder,datoFormat,status) = '" + nyBehandlingsType + nyKundeId + nyMedarbejderId + nyDatoFormat + nyStatus + "'" + "WHERE bestillingId = '" + bestillingId + "'" ;
-
-
-            Statement stmt = db.connection.createStatement();
-            stmt.execute(sql);
-
-            sql = "SELECT behandlingsType FROM Bestilling WHERE bestillingId = '" + bestillingId + "'";
-            stmt.execute(sql);
-
-
-            ResultSet rs = stmt.getResultSet();
-
-            if (rs.next()) {
-                behandlingId = rs.getInt("behandlingsType");
-                behandlingId = rs.getInt("kunde");
-                behandlingId = rs.getInt("medarbejder");
-                //behandlingId = rs.getString("datoFormat");
-                behandlingId = rs.getInt("status");
-
-            }
-
-
-            stmt.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return behandlingId;
-    }*/
-
-
-
-
-
-
-           /* String sql = "UPDATE bestilling SET (behandlingsType,kunde,medarbejder,datoFormat,status) VALUES('"
-                    + String.valueOf(b.getBehandlingsId()) + "','" + b.getKunde() + "','";
-            sql = sql + b.getMedarbejder() + "','" + b.getDatoFormat() + "','" + b.getStatusId() + "')";
-            */
-
-
-    // public String updateBestilling(int bestillingsId, int nyBehandlingsType, int kunde, int medarbejder, String datoFormat, int status) {
-    //behandlingstype  / kunde / medarbejder / datoformat/ status
-    public void updateBestilling(int bestillingId, int nyBehandlingsType, int nyKundeId, int nyMedarbejderId, String nyDatoFormat, int nyStatus) {
-        try {
-            String sql = "UPDATE bestilling SET (behandlingsType,kunde,medarbejder,datoFormat,status) VALUES('"
-                    + String.valueOf(bestillingId) + "','" + nyKundeId + "','";
-            sql = sql + nyMedarbejderId + "','" + nyDatoFormat + "','" + nyStatus + "')";
-
-            Statement stmt = db.connection.createStatement();
-            stmt.execute(sql); // upd
-
-            sql = "SELECT behandlingsType FROM Bestilling WHERE bestillingId = '" + bestillingId + "'";
-            stmt.execute(sql);
-
-
-            ResultSet rs = stmt.getResultSet();
-
-            if (rs.next()) {
-                int behandlingId = rs.getInt("behandlingsType");
-                int kundeId = rs.getInt("kunde");
-                int medarbejderId = rs.getInt("medarbejder");
-                String datoFormat = rs.getString("datoFormat");
-                int status = rs.getInt("status");
-                Bestilling bestilling = new Bestilling(bestillingId,behandlingId, kundeId,medarbejderId,datoFormat, status); //skal bestilling return til print??
-                System.out.println("[TEST]bestilling er nu : \n" + bestilling);
-
-            }
-
-            stmt.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
-
-
-
-    public String getStatusName(int id) { // navngir status id
-        if (id == 1) {
-            return "Afventer";
-        }
-        if (id == 2) {
-            return "Færdig";
-        }
-        if (id == 3) {
-            return "Aflyst";
-        }
-        return null;
-    }
-
-
-
-
-
 
     public Bestilling buildBestilling() {
 
@@ -295,7 +74,7 @@ public class BestillingController {
 
             System.out.println("År efter 2000");
             System.out.print(hour + ":" + minute + " " + day + "-");
-            String decade = errorHandling.formatDateZero(errorHandling.readIntegerExact("årti før 2010", 10, 99));
+            String decade = errorHandling.formatDateZero(errorHandling.readIntegerExact("årti efter 2010", 10, 99));
 
             datoFormat = "20" + decade + "-" + month + "-" + day + " " + hour + ":" + minute + ":00";
             System.out.println(datoFormat);
@@ -321,9 +100,9 @@ public class BestillingController {
 
     public void getBestilling()
     {
-
+        Bestilling myBestilling = db.getBestilling(id);
+        return myBestilling;
     }
-
 
     public void getAllBestilling(){
 
@@ -337,6 +116,18 @@ public class BestillingController {
         }
     }
 
+    public String getStatusName(int id) { // navngir status id
+        if (id == 1) {
+            return "Afventer";
+        }
+        if (id == 2) {
+            return "Færdig";
+        }
+        if (id == 3) {
+            return "Aflyst";
+        }
+        return null;
+    }
 
 
     //TODO BRUGES
