@@ -5,10 +5,9 @@ public class MenuController {
     //FIELD
     LoginController loginc = new LoginController();
     UserController usercon = new UserController();
-    ErrorHandling errorHandling = new ErrorHandling();
+    ErrorHandling input = new ErrorHandling();
     BestillingController bestillingcon = new BestillingController();
     BehandlingController behandlingCon = new BehandlingController();
-
     KvitteringPrinter print = new KvitteringPrinter();
 
 
@@ -18,11 +17,18 @@ public class MenuController {
     public void loginMenu() { //TODO: testet og funktionel
         int accessType;
         System.out.println("Indtast email og password");
+        System.out.println("Tast 0 for at afslutte programmet");
 
         accessType = loginc.checkUser();
-        if (accessType == 1) { kundeMenu(); }
-        if (accessType == 2) { medarbejderMenu(); }
-        if (accessType == 3) { mainMenu(); }
+        if (accessType == 1) {
+            kundeMenu();
+        }
+        if (accessType == 2) {
+            medarbejderMenu();
+        }
+        if (accessType == 3) {
+            mainMenu();
+        }
     }
 
     //mainMenu gør at hvis man har skrevet ens email eller pass forkert kan man enten vælge at prøve igen eller afslutte
@@ -33,7 +39,7 @@ public class MenuController {
                 "1. Prøv igen \n" +
                         "2. Afslut \n" +
                         "Indtast dit valg");
-        valg = errorHandling.readInteger("tal mellem 1 og 9", 10);
+        valg = input.readInteger("tal mellem 1 og 9", 10);
         //Et switch statement, hvor at user kan vælge imellem de forskellige cases og hver case gør noget forskelligt
         switch (valg) {
             case 1:
@@ -47,7 +53,7 @@ public class MenuController {
     }
 
     //Menuen for users som er registeret som kunder
-    public static void kundeMenu(){
+    public static void kundeMenu() {
         System.out.println("kundemenu");
 
 
@@ -82,7 +88,7 @@ public class MenuController {
                         "\n" +
                         "10. Log ud \n" +
                         "Indtast dit valg");
-        valg = errorHandling.readInteger("tal mellem 1 og 10", 11);
+        valg = input.readInteger("tal mellem 1 og 10", 11);
         //Et switch statement, hvor at user kan vælge imellem de forskellige cases og hver case gør noget forskelligt
         switch (valg) {
             case 1:
@@ -204,8 +210,8 @@ public class MenuController {
             case 9:
                 //todo vis en bruger
                 System.out.println("Indtast bruger ID");
-                userId = errorHandling.readInteger("et gyldigt bruger ID", 9999999);
-                User myUser = usercon.getUser(userId);
+                userId = this.input.readInteger("et gyldigt bruger ID", 9999999);
+                User myUser = db.getUser(userId);
                 System.out.println(myUser.toString());
 
                 medarbejderMenu();

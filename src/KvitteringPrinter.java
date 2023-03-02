@@ -87,6 +87,7 @@ public class KvitteringPrinter {
                             "\nTidsrum: " + behandling.getBehandlingsTid() + " min." +
                             "\nPris: " + behandling.getBehandlingsPris() + " kr."
             );
+            System.out.println();
 
         }
 

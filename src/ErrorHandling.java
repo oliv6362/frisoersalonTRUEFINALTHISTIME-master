@@ -21,6 +21,10 @@ public class ErrorHandling {
         return str;
     }
 
+    public void endMenu() {
+        s.next();
+    }
+
 
 
     public int readInteger(String inputType, int limit) {
@@ -37,7 +41,7 @@ public class ErrorHandling {
             i = readInteger(inputType, limit);
         } return i;
     }
-
+/*
     public int readIntegerExact(String inputType, int lowerLimit, int upperLimit, int minChars) {
         // readInteger der også checker tal er mellem lowerLimit og upperLimit og at der er minimum minChars cifre
         int i;
@@ -53,6 +57,36 @@ public class ErrorHandling {
             i = readIntegerExact(inputType, lowerLimit, upperLimit, minChars);
         } return i;
     }
+
+*/
+    public int readIntegerExact(String inputType, int lowerLimit, int upperLimit) {
+        // readInteger der også checker tal er mellem lowerLimit og upperLimit og at der er minimum minChars cifre
+        int i;
+        try {
+            i = s.nextInt();
+            while(i <= lowerLimit || i >= upperLimit){ // skal have flere eller ligmed minChars
+                System.out.println("Indtast kun " + inputType);
+                i = readIntegerExact(inputType, lowerLimit, upperLimit);
+            }
+        } catch (Exception e) {
+            System.out.print("Indtast kun " + inputType + "\n");
+            s.nextLine();
+            i = readIntegerExact(inputType, lowerLimit, upperLimit);
+        } return i;
+    }
+
+
+
+    public String formatDateZero(int date){
+        String dateStringFormat = Integer.toString(date);
+        if (dateStringFormat.length() == 1){
+            return "0" + date;
+        }
+        return Integer.toString(date);
+    }
+
+
+
 
     public double readDouble(String inputType, double limit) {
         double d;

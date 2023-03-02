@@ -279,26 +279,27 @@ public class BestillingController {
 
             System.out.println();
             System.out.println("Time på dagen: ");
-
-            int hour = errorHandling.readIntegerExact("time på dagen", 1, 24, 2);
+            String hour = errorHandling.formatDateZero(errorHandling.readIntegerExact("time på dagen", 1, 24));
 
             System.out.println("Minut i timen: ");
             System.out.print(hour + ":");
-            int minute = errorHandling.readIntegerExact("minut i timen", 0,59, 2);
+            String minute = errorHandling.formatDateZero(errorHandling.readIntegerExact("minut i timen", 0,59));
 
             System.out.println("Dag på måneden:");
             System.out.print(hour + ":" + minute + " ");
-            int day = errorHandling.readIntegerExact("dag på måneden", 1, 12, 2);
+            String day = errorHandling.formatDateZero(errorHandling.readIntegerExact("dag på måneden", 1, 12));
 
             System.out.println("Måned i året:");
             System.out.print(hour + ":" + minute + " " + day + "-");
-            int month = errorHandling.readIntegerExact("måned i året", 1, 12, 2);
+            String month = errorHandling.formatDateZero(errorHandling.readIntegerExact("måned i året", 1, 12));
 
             System.out.println("År efter 2000");
             System.out.print(hour + ":" + minute + " " + day + "-");
-            int decade = errorHandling.readIntegerExact("årti", 23, 99, 2);
+            String decade = errorHandling.formatDateZero(errorHandling.readIntegerExact("årti før 2010", 10, 99));
 
             datoFormat = "20" + decade + "-" + month + "-" + day + " " + hour + ":" + minute + ":00";
+            System.out.println(datoFormat);
+
 
         } while(!db.isBestillingTimeFree(datoFormat, behandlingsType));
 
