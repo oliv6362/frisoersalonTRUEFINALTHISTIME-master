@@ -9,6 +9,8 @@ public class Menu {
     BehandlingController behandlingCon = new BehandlingController();
     KvitteringPrinter print = new KvitteringPrinter();
 
+    //todo dbsql connection skal slettes
+    DBSQL db = new DBSQL();
 
 
     //METHODS
@@ -126,7 +128,7 @@ public class Menu {
                 Behandling behandling = behandlingCon.buildBehandling();
                 //buildBehandling opretter Behandling obj
 
-         //       db.addBehandling(behandling);
+                db.addBehandling(behandling);
                 //addBehandling tilføjer Behandling obj til base
                 System.out.println("Ny behandling tilføjet");
                 //System.out.println(print.printBehandling(behandling.getBehandlingsId()));
@@ -191,8 +193,7 @@ public class Menu {
         System.out.println("Redigerings menu af en bestilling:");
         int valg;
 
-        //todo dbsql connection skal slettes
-        DBSQL db = new DBSQL();
+
 
         int userId;
         int bestillingId;
