@@ -51,7 +51,7 @@ public class BestillingController {
             System.out.println("\n\n\nFx: hh:mm dd:mm:yyyy");
             System.out.println("FX: 10 30 5 6 14");
 
-
+            //HELP
 
             // YYYY-mm-dd hh:MM:ss | 2014-06-05 10:30:00 (base)
             // HH:mm dd-mm-YY | 10 30 5 6 6 (input)
