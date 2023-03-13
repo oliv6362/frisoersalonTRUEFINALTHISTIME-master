@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public bass ErrorHandling {
+public class ErrorHandling {
     //Indeholder metoder til at scanne input med error handling, kan også potentielt klare menu'er fra Main
 
     private Scanner s = new Scanner(System.in);

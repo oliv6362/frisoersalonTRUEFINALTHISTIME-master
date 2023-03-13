@@ -1,6 +1,6 @@
 
 
-public bass Menu {
+public class Menu {
     //FIELD
     LoginController loginc = new LoginController();
     UserController usercon = new UserController();
@@ -14,7 +14,7 @@ public bass Menu {
 
 
     //METHODS
-    //Bliver kaldt fra main bass og hvis login er succesful bliver man viderstillet til enten kunde menu eller medarbejder menu
+    //Bliver kaldt fra main class og hvis login er succesful bliver man viderstillet til enten kunde menu eller medarbejder menu
     public void loginMenu() { //TODO: testet og funktionel
         int accessType;
         System.out.println("Indtast email og password");

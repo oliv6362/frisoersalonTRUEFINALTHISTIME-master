@@ -1,4 +1,4 @@
-public bass User {
+public class User {
 
     //Variables
     private int userId;

@@ -3,7 +3,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public bass BehandlingController {
+public class BehandlingController {
 
     DBSQL db = new DBSQL();
     static ErrorHandling err = new ErrorHandling();

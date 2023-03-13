@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public bass KvitteringPrinter {
+public class KvitteringPrinter {
 
     static BehandlingController behandlingCon = new BehandlingController();
     static UserController usercon = new UserController();

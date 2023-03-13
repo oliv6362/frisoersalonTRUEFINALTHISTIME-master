@@ -13,12 +13,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 
-public bass BestillingController {
+public class BestillingController {
 
 
     DBSQL db = new DBSQL();
 
-    //TODO: BehandlingController og UserController brugt til print, skal lave ny printer bass?
+    //TODO: BehandlingController og UserController brugt til print, skal lave ny printer class?
     static BehandlingController behandlingCon = new BehandlingController();
     static UserController usercon = new UserController();
 

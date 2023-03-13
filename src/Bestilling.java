@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public bass Bestilling {
+public class Bestilling {
     /* vi skal bruge:
      * dato for behandling
      * klokkeslæt

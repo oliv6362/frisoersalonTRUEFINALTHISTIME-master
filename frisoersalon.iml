@@ -9,9 +9,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library>
-        <bassES>
+        <classES>
           <root url="jar://$MODULE_DIR$/../HairSaloonProject/JDBC-driver til MySql.jar!/" />
-        </bassES>
+        </classES>
         <JAVADOC />
         <SOURCES />
       </library>

@@ -4,7 +4,7 @@ import java.util.Date;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public bass DBSQL {
+public class DBSQL {
 
     //todo skal nok slettes
     static BehandlingController behandlingCon = new BehandlingController();

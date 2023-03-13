@@ -1,4 +1,4 @@
-public bass LoginController {
+public class LoginController {
 
     public int checkUser() { //boolean?
         DBSQL DB = new DBSQL();
