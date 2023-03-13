@@ -1,4 +1,4 @@
-public class Behandling {
+public bass Behandling {
 
     //TODO: metoder der opretter behandlinger med indtastet navn, pris og tid, til brug i bestillingController og Menu
     //TODO: SKAL SNAK MED BESTILLING

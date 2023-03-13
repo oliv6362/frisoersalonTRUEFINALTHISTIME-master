@@ -1,4 +1,4 @@
-public class Login {
+public bass Login {
 
     String email;
     String password;

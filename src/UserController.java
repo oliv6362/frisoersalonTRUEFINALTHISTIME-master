@@ -3,7 +3,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class UserController {
+public bass UserController {
 
     DBSQL db = new DBSQL();
 
